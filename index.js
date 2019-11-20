@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 const mongoose = require('mongoose');
-const driver = require('./models/DriverProfile.js');
+const driver = require('./models/DriverProfileSchema.js');
 const url = 'mongodb+srv://admin:admin@cluster0-4yqkc.mongodb.net/flashride?retryWrites=true&w=majority';
 
 // support parsing of application/json type post data
