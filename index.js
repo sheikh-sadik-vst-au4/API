@@ -17,7 +17,7 @@ mongoose.connect(url, {
     console.log("connection success");
 });
 
-app.get('/dashboard/drivers', function (req, res) {
+app.get('/', function (req, res) {
 
     driver.find().exec().then(function (result) {
            console.log(result);
@@ -30,6 +30,7 @@ app.get('/dashboard/drivers', function (req, res) {
         }
     });
 });
+
 
 app.listen(PORT, function (req, res) {
     console.log("Application is running on PORT: ", PORT);
