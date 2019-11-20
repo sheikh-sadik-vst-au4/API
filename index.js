@@ -32,6 +32,6 @@ app.get('/', function (req, res) {
 });
 
 
-app.listen(PORT, function (req, res) {
+app.listen(process.env.PORT||PORT, function (req, res) {
     console.log("Application is running on PORT: ", PORT);
 });
