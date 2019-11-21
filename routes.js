@@ -1,25 +1,39 @@
 const express = require('express');
-const router = express.Router();
+const router = express();
+const hbs = require('./handlebars.js');
+// const driver = require('./models/Driver.js');
+const ride = require('./models/Rides');
+const database = require('./database.js');
+database.connect();
 
-const User = require('./models/UserProfile.js');
+router.engine(".hbs", hbs.engine);
+router.set("view engine", ".hbs");
 
+router.get('/', function (req, res) {
+    
+//     driver.find().exec().then(function (result) {
+        
+//         res.render("home",{data : result});
 
+//     }).catch(function (err) {
+//         if (err) {
+//             console.log(err);
+//             res.json(err);
+//         }
+//     });
 
-router.get('/:email', function (req, res) {
+// });
+ride.find().exec().then(function (result) {
+        
+    res.render("home",{data : result});
+    console.log(result);
 
-    email = req.params.email;
-    User.findById(email).exec().then(function(doc){
-        res.json({
-            success: doc
-        })
-    }).catch(function(err)
-    {
+}).catch(function (err) {
+    if (err) {
         console.log(err);
-    });
+        res.json(err);
+    }
+});
 
-    res.json({
-        success: req.params.email
-    })
-})
-
+});
 module.exports = router;
