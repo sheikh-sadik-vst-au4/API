@@ -8,8 +8,8 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center">
-                <h5 class="modal-title" id="exampleModalLabel">Previous Ride</h5>
+            <div class="modal-header">
+                <h5 class=" col-11 modal-title text-center" id="exampleModalLabel">Your Rides</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -19,7 +19,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-2 my-auto"><img src="cab.png"></div>
+                            <div class="col-2 my-auto"><img src="cab.png" class="img-fluid"></div>
                             <div class="col-7 my-auto">
                                 <span class="text"><b>{{this.time}}</b></span><br>
                                 <span class="address desc"><img src="green.png" width="6px" height="6px"> {{this.from}}</span><br>
@@ -31,7 +31,7 @@
                                 {{else}}
                                 <span class="text-success text-center status">₹{{this.fare}}</span>
                                 {{/ifCond}}
-                                <img src="driver.png" class="image" class="mr-2">
+                                <img src="driver.png" class="image img-fluid">
                                 </div>
                         </div>
                     </div>
