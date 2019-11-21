@@ -11,35 +11,40 @@ router.engine(".hbs", hbs.engine);
 router.set("view engine", ".hbs");
 
 router.get('/', function (req, res) {
-    
-//     driver.find().exec().then(function (result) {
-        
-//         res.render("home",{data : result});
 
-//     }).catch(function (err) {
-//         if (err) {
-//             console.log(err);
-//             res.json(err);
-//         }
-//     });
+    //     driver.find().exec().then(function (result) {
 
-// });
-ride.find().exec().then(function (result) {
-    
-    var date = [];
-    for(var i = 0;i<result.length;i++)
-    {    
-     date.push(moment(result[i].time).format('llll'));     
-    }
-    console.log(date);
-    res.render("home",{data : result});
+    //         res.render("home",{data : result});
 
-}).catch(function (err) {
-    if (err) {
-        console.log(err);
-        res.json(err);
-    }
-});
+    //     }).catch(function (err) {
+    //         if (err) {
+    //             console.log(err);
+    //             res.json(err);
+    //         }
+    //     });
+
+    // });
+    ride.find().exec().then(function (result) {
+
+        var rideDetails = [];
+        for (var i = 0; i < result.length; i++) {
+            rideDetails.push({
+                from: result[i].from,
+                to: result[i].to,
+                cancel: result[i].cancel,
+                fare: result[i].fare,
+                time: moment(result[i].time).format('llll')
+            });
+        }
+            res.render("home", { data: rideDetails });
+            console.log(rideDetails);
+            
+    }).catch(function (err) {
+        if (err) {
+            console.log(err);
+            res.json(err);
+        }
+    });
 
 });
 module.exports = router;
