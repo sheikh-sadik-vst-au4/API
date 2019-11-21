@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express();
 const hbs = require('./handlebars.js');
+const moment = require('moment');
 // const driver = require('./models/Driver.js');
 const ride = require('./models/Rides');
 const database = require('./database.js');
@@ -24,9 +25,14 @@ router.get('/', function (req, res) {
 
 // });
 ride.find().exec().then(function (result) {
-        
+    
+    var date = [];
+    for(var i = 0;i<result.length;i++)
+    {    
+     date.push(moment(result[i].time).format('llll'));     
+    }
+    console.log(date);
     res.render("home",{data : result});
-    console.log(result);
 
 }).catch(function (err) {
     if (err) {
