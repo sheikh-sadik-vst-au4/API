@@ -1,48 +1,30 @@
-.font{
- font-size: 12px;
-}
+/* <===================START OF RIDE PAGE CSS===================> */
 
-.image{
-    border: 1px solid black; 
-    border-radius: 50%;
-    width: 50px;
-    height:50px;
-    margin-left: 10px;
-    margin-bottom: 10px;
+*{font-family: 'Roboto', sans-serif;}
 
-}
+/* ride time class */
 
-.address {
-    width: 90%;
-    color: #999999;
-    line-height: 20px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding-left: 5px;
-}
-
-.desc {
-    font-size: 12px;
-    color: #6d6d6d;
-}
-
-.status {
-    font-size: 14px;
-    top: 0;
-    font-weight: 600;
-}
-
-.text {
+.ride-time {
     text-overflow: ellipsis;
     overflow: hidden;
     color: black;
+    font-weight: 700;
+    line-height: 20px;
+    font-size: 16px;
 }
 
-.driver-image{    
-    margin-left: 20px;
-    margin-bottom: 10px;
+/* ride address class */
 
+.ride-address{
+    font-weight: 500;
+    font-size: 14px;
+    color: #999999;
+    line-height: 20px;
+    padding-left: 5px;
 }
+
+/* modal height width */
+
 .modal-full {
     min-width: 80%;
     margin: 0;
@@ -51,3 +33,29 @@
 .modal-full .modal-content {
     min-height: 100vh;
 }
+
+/* driver image */
+
+.driver-image{
+    border: 1px solid black; 
+    border-radius: 50%;
+    width: 50px;
+    height:50px;
+
+}
+
+/* driver ride status */
+
+.ride-status {
+    font-size: 16px;
+    top: 0;
+    font-weight: 700;
+}
+
+/* <===================END OF RIDE PAGE CSS===================> */
+
+
+
+
+
+
