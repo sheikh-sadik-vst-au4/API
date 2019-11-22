@@ -1,50 +1,15 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Ride History
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-full" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class=" col-11 modal-title text-center" id="exampleModalLabel">Your Rides</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body bg-light">
-                {{#each data}}
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row justify-content-md-center align-items-center">
-                            <div class="col-md-auto"><img src="taxi1.png" class="img-fluid" width="100px" height="100px"/></div>
-                            <div class="col-md-auto">
-                                <span class="ride-time">{{this.time}}</span><br>
-                                <span class="ride-address"><img src="green.png" width="6px" height="6px">
-                                    {{this.from}}</span><br>
-                                <span class="ride-address desc"><img src="red.png" width="6px" height="6px">
-                                    {{this.to}}</span>
-                            </div>
-                            <div class="col-md-auto text-center">
-                                <div class="col">
-                                    {{#ifCond this.cancel true}}
-                                    <span class="text-danger text-center  ride-status">CANCEL</span>
-                                    {{else}}
-                                    <span class="text-success text-center ride-status">₹{{this.fare}}</span>
-                                    {{/ifCond}}
-                                </div>
-                                <div class="col">
-                                    <img src="driver.png" class="driver-image img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{/each}}
-
-            </div>
-        </div>
+<div class="row">
+    <div class="col">
+        <img src="{{data.imageurl}}">
     </div>
 </div>
+<form id="change-image">
+    <div class="row col-md-6">
+    <div class="form-group">
+        <input type="file" class="form-control" name="avtar" id="avtar">
+    </div>
+    <div class="form-group">
+        <input type="submit" value="change image" class="btn btn-success">
+    </div>
+    </div>
+</form>
