@@ -22,17 +22,23 @@
                             <div class="col-2 my-auto"><img src="cab.png" class="img-fluid"></div>
                             <div class="col-8 my-auto">
                                 <span class="text"><b>{{this.time}}</b></span><br>
-                                <span class="address desc"><img src="green.png" width="6px" height="6px"> {{this.from}}</span><br>
-                                <span class="address desc"><img src="red.png" width="6px" height="6px">  {{this.to}}</span>
+                                <span class="address desc"><img src="green.png" width="6px" height="6px">
+                                    {{this.from}}</span><br>
+                                <span class="address desc"><img src="red.png" width="6px" height="6px">
+                                    {{this.to}}</span>
                             </div>
                             <div class="col-2 text-center">
-                                {{#ifCond this.cancel true}}
-                                <span class="text-danger text-center  status">CANCEL</span>
-                                {{else}}
-                                <span class="text-success text-center status">₹{{this.fare}}</span>
-                                {{/ifCond}}
-                                <img src="driver.png" class="image img-fluid">
+                                <div class="col">
+                                    {{#ifCond this.cancel true}}
+                                    <span class="text-danger text-center  status">CANCEL</span>
+                                    {{else}}
+                                    <span class="text-success text-center status">₹{{this.fare}}</span>
+                                    {{/ifCond}}
                                 </div>
+                                <div class="col">
+                                    <img src="driver.png" class="image img-fluid">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
