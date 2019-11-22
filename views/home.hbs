@@ -6,7 +6,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-full" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class=" col-11 modal-title text-center" id="exampleModalLabel">Your Rides</h5>
@@ -20,12 +20,12 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-2 my-auto"><img src="cab.png" class="img-fluid"></div>
-                            <div class="col-7 my-auto">
+                            <div class="col-8 my-auto">
                                 <span class="text"><b>{{this.time}}</b></span><br>
                                 <span class="address desc"><img src="green.png" width="6px" height="6px"> {{this.from}}</span><br>
                                 <span class="address desc"><img src="red.png" width="6px" height="6px">  {{this.to}}</span>
                             </div>
-                            <div class="col-3 text-center">
+                            <div class="col-2 text-center">
                                 {{#ifCond this.cancel true}}
                                 <span class="text-danger text-center  status">CANCEL</span>
                                 {{else}}
