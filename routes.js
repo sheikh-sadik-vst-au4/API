@@ -45,7 +45,7 @@ var imageName;
 
 router.get('/', function (req, res) {
 
-    user.findOne({ imageurl: 'userImage.png' }).exec().then(function (result) {
+    user.findOne({ _id: '5ddcb0941c9d440000755e38' }).exec().then(function (result) {
 
         res.render("home", { data: result });
         imageName = result.imageurl;
@@ -60,49 +60,19 @@ router.get('/', function (req, res) {
 
 });
 
-var ImageResult;
-var file;
-
-router.post('/upload', upload.single('avtar'), function (request, response, next) {
-    file = request.file;
-    return next();
-}, function (request, response, next) {
-    console.log("uploaded image path>>>>>>>", file.path);
-    cloudinary.uploader.upload(file.path, function (error, result) {
-        if (error) {
-            console.log(error);
-        }
-        console.log(result);
+router.post('/uploadimage', upload.single('avtar'), function (req, res) {
+    const filter = { _id: '5ddcb0941c9d440000755e38' };
+    const update = { imageurl: req.file.filename };
+    user.findOneAndUpdate(filter,update)
+    .then(function (dbProduct) {
+        // If we were able to successfully update a Product, send it back to the client
+        res.json({"message" : dbProduct});
+    })
+    .catch(function (err) {
+        // If an error occurred, send it to the client
+        res.json(err);
     });
 
-}, function (request, response) {
-    response.send(file.path)
-});
-
-// router.post('/uploadimage', upload.single('avtar'), function (req, res, next) {
-
-//     file = req.file;
-//     cloudinary.uploader.upload(file.path, function (error, response) {
-//         if (error) {
-//             console.log("error");
-//         }
-//         console.log("Upload complete!", file.path);
-//         console.log(response.url);
-//         ImageResult = response.url
-//         console.log(ImageResult);
-//     });
-//     return next();
-// }, function (req, res) {
-
-//     var conditions = { imageurl: imageName };
-//     console.log(conditions.imageurl);
-//     var update = { imageurl: ImageResult };
-//     user.updateOne(conditions, update, function (error, result) {
-//         console.log(result);
-//     });
-
-//     res.send("hello");
-// });
-
+})
 
 module.exports = router;
